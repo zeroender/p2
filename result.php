@@ -26,7 +26,7 @@
 
       <h3>Work Schedule Application</h3>
 
-      <img src='/images/calendar.jpg' />
+      <img src='/images/calendar.jpg' alt='An Image of a Calendar'/>
 
       <?php if ($displayAll != true) : ?>
         <div class="alert alert-warning">Uh oh!  You've reached this page in error!</div>
