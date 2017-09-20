@@ -1,0 +1,29 @@
+
+body {
+  margin: auto;
+  font-family: Verdana, Arial, sans-serif;
+}
+
+div {
+  padding: 10px 0;
+  text-align: left;
+  text-overflow: clip;
+}
+
+input, label {
+  float:left;
+  clear:left;
+}
+
+legend {
+  padding-top: 15px;
+  font-size: 1.3em;
+}
+
+img {
+  width: 500px;
+}
+
+div .alert {
+  padding-top: 15px;
+}
