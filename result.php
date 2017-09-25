@@ -28,9 +28,6 @@
 
       <img src='/images/calendar.jpg' alt='An Image of a Calendar'/>
 
-    <?php dump($daysToWork); ?>
-
-
         <?php if ($form->hasErrors) :?>
             <div class='alert alert-danger'>
                 <p>There were error(s) with your submission:</p>
