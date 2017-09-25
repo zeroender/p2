@@ -1,4 +1,5 @@
 <?php require('php/calendar.php'); ?>
+<?php require('php/form.php'); ?>
 
 <!DOCTYPE html>
 <html>
@@ -52,8 +53,6 @@
           <label><input type='radio' name='nightsOk' value='yes'>Yes</label>
           <label><input type='radio' name='nightsOk' value='no'>No</label>
         </fieldset>
-
-
 
         <fieldset class='confirmation'>
           <legend>Double check your selections and click Confirm:</legend>

@@ -1,4 +1,4 @@
-<?php require('php/calendar.php'); ?>
+<?php require('php/logic.php'); ?>
 
 <!DOCTYPE html>
 <html>
@@ -28,24 +28,34 @@
 
       <img src='/images/calendar.jpg' alt='An Image of a Calendar'/>
 
-      <?php if ($displayAll != true) : ?>
-        <div class="alert alert-warning">Uh oh!  You've reached this page in error!</div>
-        <div class="alert alert-warning">Please return to the registration page and be sure to fill out all required fields</div>
-        <a href="index.php"><button class='btn btn-primary'>Head back to registration page</button></a>
-        <?php return false;?>
-      <?php endif; ?>
+    <?php dump($daysToWork); ?>
 
-      <div class="alert alert-success">Hello <?=$fullName?>, your weekly schedule has been registered</div>
 
-      <?php if ($workDays == 'None') : ?>
-        <h4>Sounds like you're not available to work this week.</h4>
-      <?php else: ?>
-        <h4>You are signed up to work the following days:</h4>
-        <?php foreach ($workDays as $dayNo => $day) : ?>
-          <p><?=$day?></p>
-        <?php endforeach; ?>
-        <p>You indicated that you <?=$canWorkNights?> available to work nights</p>
-      <?php endif; ?>
+        <?php if ($form->hasErrors) :?>
+            <div class='alert alert-danger'>
+                <p>There were error(s) with your submission:</p>
+                <ul>
+                    <?php foreach ($errors as $error) :?>
+                        <li><?=$error?></li>
+                    <?php endforeach; ?>
+                </ul>
+                <p>Please return to the registration page to correct these and resubmit</p>
+            </div>
+        <?php else :?>
+            <div class="alert alert-success">
+                <h4>Hello <?=$fullName?>, your weekly schedule has been registered</h4>
+
+                <?php if (isset($daysToWork)) : ?>
+                    <h4>You are signed up to work the following days:</h4>
+                    <?php foreach ($daysToWork as $dayNo => $day) : ?>
+                        <p><?=$day?></p>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <h4>Sounds like you're not available to work this week.</h4>
+                <?php endif; ?>
+                <h4>You <?=$canWorkNights?> signed up to work nights</h4>
+            </div>
+        <?php endif; ?>
 
       <a href="index.php"><button class='btn btn-primary'>Head back to registration page</button></a>
 
