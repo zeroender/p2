@@ -32,7 +32,12 @@
 
     <img src='/images/calendar.jpg' alt='An Image of a Calendar'/>
 
-    <?php if ($form->hasErrors) : ?>
+    <?php if ($form->isSubmitted() == false) : ?>
+        <div class='alert alert-danger'>
+            <p>It looks like there was an error submitting the form</p>
+            <p>Please return to the registration page and fill out all required fields</p>
+        </div>
+    <?php elseif ($form->hasErrors) : ?>
         <div class='alert alert-danger'>
             <p>There were error(s) with your submission:</p>
             <ul>
@@ -40,7 +45,7 @@
                     <li><?= $error ?></li>
                 <?php endforeach; ?>
             </ul>
-            <p>Please return to the registration page to correct these and resubmit</p>
+            <p>Please return to the registration page and fill out all required fields</p>
         </div>
     <?php else : ?>
         <div class="alert alert-success">
@@ -58,9 +63,7 @@
         </div>
     <?php endif; ?>
 
-    <a href="index.php">
-        <button class='btn btn-primary'>Head back to registration page</button>
-    </a>
+    <a href="index.php">Head back to registration page</a>
 
 </div>
 
