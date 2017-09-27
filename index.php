@@ -1,5 +1,5 @@
-<?php require('php/calendar.php'); ?>
-<?php require('php/form.php'); ?>
+<?php require('php/Form.php'); ?>
+<?php require('php/WorkWeekSchedule.php'); ?>
 
 <!DOCTYPE html>
 <html>

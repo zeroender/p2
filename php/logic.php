@@ -1,8 +1,7 @@
 <?php
 
-require('form.php');
-require('helpers.php');
-
+require('Form.php');
+require('WorkWeekSchedule.php');
 
 use DWA\Form;
 
@@ -19,17 +18,5 @@ if ($form->isSubmitted())
     );
 }
 
-$fullName = $form->get("firstName").' '.$form->get("lastName");
-
-$canWorkNights = $form->get("nightsOk");
-
-if ($canWorkNights == 'yes')
-{
-    $canWorkNights = 'are';
-}
-else
-{
-    $canWorkNights = 'are not';
-}
-
-$daysToWork = $form->get('days');
+$schedule = new workWeekSchedule($form->get("firstName"), $form->get("lastName"),
+    $form->get('days'), $form->get("nightsOk"));
